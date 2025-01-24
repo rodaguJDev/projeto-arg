@@ -13,7 +13,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: hsl(0, 0%, 10%);
-    overflow-y: hidden;
+    overflow: clip;
 }
 
 .mirror {
@@ -31,21 +31,18 @@ body {
     background-color: #fff;
     border-radius: 100%;
     opacity: 0.7;
-    z-index: 2;
+    z-index: 1;
 }
 
 /* Waves */
 .wave {
     position: absolute;
     height: 100%;
+    z-index: 1;
 }
 
 .wave--left {
     left: 0;
-}
-
-.wave--right {
-    right: 0;
 }
 
 /* Waves dots */
@@ -66,6 +63,27 @@ body {
 .wave__dots--right {
     right: 0;
     align-items: end;
+}
+
+/* Swiper */
+.swiper {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: -100%; /*hidden*/
+    height: 100%;
+    z-index: 2;
+    transition: right linear 0.5s;
+}
+
+.swiper__wave {
+    position: relative;
+}
+
+.swiper__content {
+    width: 100vw;
+    height: 100%;
+    background-color: black;
 }
 
 /* Waves animation */

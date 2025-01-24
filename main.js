@@ -39,4 +39,18 @@ function loadWhiteDots() {
     }
 }
 
-loadWhiteDots();
+function swipe() {
+    /**
+     * @type {HTMLDivElement|null}
+     */
+    const swiper = document.querySelector(".swiper");
+    if (swiper) {
+        swiper.style.right = "0";
+    }
+}
+
+function load() {
+    loadWhiteDots();
+}
+
+load();

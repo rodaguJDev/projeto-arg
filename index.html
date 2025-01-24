@@ -35,31 +35,34 @@
                     </g>
                 </svg>
             </div>
-            <div class="wave wave--right">
-                <div class="wave__dots wave__dots--right">
-                    <div class="white-dot"></div>
+            <div class="swiper">
+                <div class="wave swiper__wave">
+                    <div class="wave__dots wave__dots--right">
+                        <div class="white-dot"></div>
+                    </div>
+                    <svg
+                        class="wave__animation mirror"
+                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink"
+                        viewBox="0 24 150 28"
+                        preserveAspectRatio="none"
+                        shape-rendering="auto"
+                    >
+                        <defs>
+                            <path
+                                id="gentle-wave"
+                                d="M 44 -30 c 0 7.5 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 h -44 v -220 z"
+                            />
+                        </defs>
+                        <g class="parallax">
+                            <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.7)" />
+                            <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.5)" />
+                            <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.3)" />
+                            <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,1)" />
+                        </g>
+                    </svg>
                 </div>
-                <svg
-                    class="wave__animation mirror"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 24 150 28"
-                    preserveAspectRatio="none"
-                    shape-rendering="auto"
-                >
-                    <defs>
-                        <path
-                            id="gentle-wave"
-                            d="M 44 -30 c 0 7.5 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 h -44 v -220 z"
-                        />
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.7)" />
-                        <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.5)" />
-                        <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.3)" />
-                        <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,1)" />
-                    </g>
-                </svg>
+                <div class="swiper__content"></div>
             </div>
         </div>
     </body>
