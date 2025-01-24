@@ -1,6 +1,7 @@
-:root, body {
+body {
     margin: 0;
     padding: 0;
+    background-color: hsl(0, 0%, 10%);
 }
 
 .mirror {
@@ -12,7 +13,6 @@
 .hero_area {
     position: relative;
     height: 100vh;
-    background-color: black;
 }
 
 .waves {
