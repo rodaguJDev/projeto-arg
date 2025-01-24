@@ -16,11 +16,15 @@ body {
     overflow-y: hidden;
 }
 
-.container {
-    flex: 1;
+.mirror {
+    transform: scaleX(-1);
 }
 
-/* White dots */
+.hero_area {
+    position: relative;
+    height: 100vh;
+}
+
 .white-dot {
     width: var(--dot-size);
     height: var(--dot-size);
@@ -30,40 +34,46 @@ body {
     z-index: 2;
 }
 
-.dots {
-    width: calc(var(--wave-width) / 2);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+/* Waves */
+.wave {
     position: absolute;
-}
-
-.dots-left {
-    left: 0;
-    animation: dots-move 25s linear infinite;
-}
-
-.dots-right {
-    right: 0;
-    align-items: end;
-    animation: dots-move 25s linear reverse infinite;
-}
-
-/* Waves Animation start*/
-.hero_area {
-    display: flex;
-    position: relative;
-    height: 100vh;
-}
-
-.waves {
-    z-index: 0;
-    width: var(--wave-width);
     height: 100%;
 }
 
-.mirror {
-    transform: scale(-1);
+.wave--left {
+    left: 0;
+}
+
+.wave--right {
+    right: 0;
+}
+
+/* Waves dots */
+.wave__dots {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: calc(var(--wave-width) / 2);
+    position: absolute;
+    bottom: 0;
+    animation: dots-move 25s linear infinite;
+}
+
+.wave__dots--left {
+    left: 0;
+}
+
+.wave__dots--right {
+    right: 0;
+    align-items: end;
+}
+
+/* Waves animation */
+.wave__animation {
+    position: relative;
+    width: var(--wave-width);
+    height: 100%;
+    z-index: 0;
 }
 
 .parallax > use {
@@ -109,12 +119,5 @@ body {
 
     100% {
         bottom: -500%;
-    }
-}
-
-@media (width < 768px) {
-    .waves {
-        width: 40px;
-        min-width: 40px;
     }
 }

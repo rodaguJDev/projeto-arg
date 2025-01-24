@@ -12,8 +12,8 @@ function getRandomDouble(min, max, precision = 1) {
 function loadWhiteDots() {
     const DOT_COUNT = 100;
 
-    const dotsLeft = document.querySelector(".dots-left");
-    const dotsRight = document.querySelector(".dots-right");
+    const dotsLeft = document.querySelector(".wave__dots--left");
+    const dotsRight = document.querySelector(".wave__dots--right");
     const elementPrefix = '<div class="white-dot" style="';
     const elementSufix = '"></div>';
 
