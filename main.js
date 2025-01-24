@@ -148,5 +148,3 @@ function load() {
 }
 
 load();
-
-swipeObject = document.querySelector(".swiper");
