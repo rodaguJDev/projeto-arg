@@ -76,7 +76,6 @@ function swipeListenerFactory(swipeObject) {
         currentX = event.clientX || event.touches[0].clientX;
         let swipeDistance = currentX - startX;
         let percentage = convertToPercentage(swipeDistance);
-        console.log(percentage);
 
         // the `right` parameter needs to be between -100 and 0, so subtract 100 from the movepercentage
         swipeObject.style.right = `${percentage - 100}%`;
