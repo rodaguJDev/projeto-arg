@@ -1,3 +1,4 @@
+import MD5 from "./modules/md5.js";
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -45,7 +46,7 @@ function loadWhiteDots() {
  * @param {Function} onSwipeDone
  * @returns {Object}
  */
-function swipeListenerFactory(swipeObject) {
+function swipeListenerFactory(swipeObject, onSwipeDone) {
     let startX = 0;
     let currentX = 0;
     let isSwiping = false;
@@ -93,6 +94,7 @@ function swipeListenerFactory(swipeObject) {
         if (percentage > swipeThreshold) {
             swipeObject.style.right = "0%";
             removeListeners();
+            onSwipeDone();
         } else {
             swipeObject.style.right = "-100%";
         }
@@ -127,14 +129,42 @@ function swipeListenerFactory(swipeObject) {
     };
 }
 
-function swipe() {
-    /**
-     * @type {HTMLDivElement|null}
-     */
-    const swiper = document.querySelector(".swiper");
-    if (swiper) {
-        swiper.style.right = "0";
-    }
+function verifyAnswer(answer, hash) {
+    return MD5(answer) === hash;
+}
+
+function renderFirstQuestion() {
+    const pergunta =
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos incidunt pariatur facilis odio molestiae quod vel, iusto dolores obcaecati non! Facilis quis molestias aut minima praesentium dolore doloremque velit veritatis?  (the answer is banana)";
+    const answerHash = "72b302bf297a228a75730123efef7c41";
+
+    const question = document.querySelector("#question1");
+    const questionButton = document.querySelector(".question__button");
+    const questionInput = document.querySelector(".question__input");
+    const questionText = question.querySelector(".question__text");
+
+    // make question visible
+    question.classList.add("question--visible");
+
+    // make answer button clickable
+    questionButton.addEventListener("click", (event) => {
+        if (verifyAnswer(questionInput.value, answerHash)) {
+            question.classList.remove("question--visible");
+        } else {
+            questionInput.value = "";
+        }
+    });
+
+    // render question letter by letter
+    (async () => {
+        const DELAY = 20;
+
+        questionText.innerHTML = "";
+        for (let i = 0; i < pergunta.length; i++) {
+            questionText.innerHTML += pergunta[i];
+            await new Promise((resolve) => setTimeout(resolve, DELAY));
+        }
+    })();
 }
 
 function load() {
@@ -143,7 +173,9 @@ function load() {
 
     // load swiper
     const swipeObject = document.querySelector(".swiper");
-    const swipeListener = swipeListenerFactory(swipeObject);
+    const swipeListener = swipeListenerFactory(swipeObject, () => {
+        setTimeout(renderFirstQuestion, 500);
+    });
     swipeListener.loadListeners();
 }
 
