@@ -1,83 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <link rel="stylesheet" href="./style.css" />
-        <script defer type="module" src="main.js"></script>
-    </head>
-    <body>
-        <div class="hero_area">
-            <div class="wave wave--left">
-                <div class="wave__dots wave__dots--left">
-                    <div class="white-dot"></div>
-                </div>
-                <svg
-                    class="wave__animation"
-                    xmlns="http://www.w3.org/2000/svg"
-                    xmlns:xlink="http://www.w3.org/1999/xlink"
-                    viewBox="0 24 150 28"
-                    preserveAspectRatio="none"
-                    shape-rendering="auto"
-                >
-                    <defs>
-                        <path
-                            id="gentle-wave"
-                            d="M 66 -30 c 0 7.5 75 14.5 75 22 s -75 14.5 -75 22 s 75 14.5 75 22 s -75 14.5 -75 22 s 75 14.5 75 22 s -75 14.5 -75 22 s 75 14.5 75 22 s -75 14.5 -75 22 s 75 14.5 75 22 s -75 14.5 -75 22 h -66 v -220 z"
-                        />
-                    </defs>
-                    <g class="parallax">
-                        <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.7)" />
-                        <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.5)" />
-                        <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.3)" />
-                        <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,1)" />
-                    </g>
-                </svg>
-            </div>
-            <div class="swiper">
-                <div class="wave swiper__wave">
-                    <div class="wave__dots wave__dots--right">
-                        <div class="white-dot"></div>
-                    </div>
-                    <svg
-                        class="wave__animation mirror"
-                        xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0 24 150 28"
-                        preserveAspectRatio="none"
-                        shape-rendering="auto"
-                    >
-                        <defs>
-                            <path
-                                id="gentle-wave"
-                                d="M 44 -30 c 0 7.5 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 s 50 14.5 50 22 s -50 14.5 -50 22 h -44 v -220 z"
-                            />
-                        </defs>
-                        <g class="parallax">
-                            <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.7)" />
-                            <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.5)" />
-                            <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,0.3)" />
-                            <use xlink:href="#gentle-wave" x="0" y="0" fill="rgba(0,0,0,1)" />
-                        </g>
-                    </svg>
-                </div>
-                <div class="swiper__content">
-                    <div class="question-container">
-                        <div class="question" id="question1">
-                            <p class="question__text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos incidunt pariatur facilis
-                                odio molestiae quod vel, iusto dolores obcaecati non! Facilis quis molestias aut minima
-                                praesentium dolore doloremque velit veritatis.
-                            </p>
-                            <div class="question__answer">
-                                <input type="text" class="question__input" id="inputQuestion1" />
-                                <button class="question__button" id="btnQuestion1">Enviar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
