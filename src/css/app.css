@@ -1,0 +1,58 @@
+@import 'tailwindcss';
+
+@theme {
+    --transition-none: none;
+    --opacity-0: 0;
+    --animate-fall: fall 10s linear infinite;
+    @keyframes fall {
+        0% {
+            transform: translate(0, -50%);
+        }
+        100% {
+            transform: translate(0, 0%);
+        }
+    }
+}
+
+@layer utilities {
+    .bg-dotted {
+        background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='60' height='60' patternTransform='scale(0.5) rotate(50)'><rect x='0' y='0' width='100%' height='100%' fill='%23000000ff'/><path d='M2.75 1.5a1.25 1.25 90 01-1.25 1.25 1.25 1.25 90 01-1.25-1.25 1.25 1.25 90 011.25-1.25 1.25 1.25 90 011.25 1.25' transform='translate(10,0)' stroke-width='1' stroke='none' fill='%23ffffffff'/></pattern></defs><rect width='800%' height='800%' transform='translate(-8,-3)' fill='url(%23a)'/></svg>");
+    }
+}
+
+@layer components {
+    .wave > use {
+        animation: wave 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+    }
+
+    .wave > use:nth-child(1) {
+        animation-delay: -2s;
+        animation-duration: 5s;
+    }
+
+    .wave > use:nth-child(2) {
+        animation-delay: -3s;
+        animation-duration: 8s;
+    }
+
+    .wave > use:nth-child(3) {
+        animation-delay: -4s;
+        animation-duration: 11s;
+    }
+
+    .wave > use:nth-child(4) {
+        animation-delay: -5s;
+        animation-duration: 18s;
+    }
+    @keyframes wave {
+        0% {
+            /* transform: translate3d(-90px, 0, 0); */
+            transform: translate3d(0, -45px, 0);
+        }
+
+        100% {
+            /* transform: translate3d(85px, 0, 0); */
+            transform: translate3d(0, 42px, 0);
+        }
+    }
+}
