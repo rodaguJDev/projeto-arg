@@ -25,10 +25,18 @@ function Waves() {
     }
 
     function swipeStart(event) {
-        isDragging = true;
-        startX = event.clientX || event.touches[0].clientX;
+        // get the offset from the corner of the screen
+        startX = event.clientX || event.touches?.[0]?.clientX;
 
-        // disable transition animations for waves
+        // if the offset is null, do not start a drag
+        if (startX === undefined) {
+            return;
+        }
+
+        // now that we are sure a drag has happened, set the state for the other functions
+        isDragging = true;
+
+        // disable transition animations for the waves while dragging
         for (let wave of document.querySelectorAll('.js-pause-transition')) {
             wave.classList.add('transition-none');
         }
@@ -53,9 +61,18 @@ function Waves() {
         }
 
         if (dragPercentage > dragThreshold) {
+            setDragDistance(0);
+
+            // fadeout the waves
+            for (let wave of document.querySelectorAll('.js-toggle-opacity')) {
+                wave.style.opacity = 0;
+            }
+
             // event to load next stage here
-            const event = new Event('load_stage_two');
-            document.dispatchEvent(event);
+            setTimeout(() => {
+                const event = new Event('load_stage_two');
+                document.dispatchEvent(event);
+            }, 2000);
         } else {
             setDragDistance(-100);
         }
@@ -78,7 +95,7 @@ function Waves() {
                 style={{ left: `${dragDistance()}%` }}
             >
                 <div class="h-full min-w-screen bg-black">
-                    <div class="relative h-full w-full overflow-y-clip">
+                    <div class="js-toggle-opacity relative h-full w-full overflow-y-clip">
                         <div class="bg-dotted animate-fall absolute -right-10 z-10 h-[400%] w-full"></div>
                     </div>
                 </div>
@@ -87,11 +104,11 @@ function Waves() {
                 </div>
             </div>
             <div
-                class="js-pause-transition absolute -right-full flex h-screen flex-row-reverse transition-[right] duration-300 ease-in-out"
+                class="js-pause-transition absolute -right-full flex h-screen flex-row-reverse"
                 style={{ right: `${dragDistance()}%` }}
             >
                 <div class="h-full w-screen bg-black transition-none">
-                    <div class="relative h-full w-full overflow-y-clip">
+                    <div class="js-toggle-opacity relative h-full w-full overflow-y-clip">
                         <div class="bg-dotted animate-fall absolute -left-10 z-10 h-[400%] w-full"></div>
                     </div>
                 </div>

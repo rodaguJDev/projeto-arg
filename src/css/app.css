@@ -2,6 +2,7 @@
 
 @theme {
     --transition-none: none;
+    --opacity-0: 0;
     --animate-fall: fall 10s linear infinite;
     @keyframes fall {
         0% {

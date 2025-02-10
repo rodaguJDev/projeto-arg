@@ -1,8 +1,8 @@
 function EnigmaOne() {
     return (
-        <>
-            <span>Hello, World!</span>
-        </>
+        <div class="h-screen bg-black">
+            <span class="text-white">Hello, World!</span>
+        </div>
     );
 }
 

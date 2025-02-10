@@ -4,14 +4,13 @@ import EnigmaOne from './pages/EnigmaOne';
 
 const [currentPage, setCurrentPage] = createSignal(Waves);
 
-// stage switching events
+// Listen for stage switching events
 document.addEventListener('load_stage_two', () => {
     setCurrentPage(EnigmaOne);
 });
 
 function App() {
-    let page = currentPage();
-    return page;
+    return <>{currentPage() /* Call the signal directly inside JSX */}</>;
 }
 
 export default App;
