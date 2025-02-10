@@ -72,7 +72,7 @@ function Waves() {
             setTimeout(() => {
                 const event = new Event('load_stage_two');
                 document.dispatchEvent(event);
-            }, 2000);
+            }, 400);
         } else {
             setDragDistance(-100);
         }
