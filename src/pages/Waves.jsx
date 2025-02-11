@@ -1,19 +1,18 @@
 import { createSignal, onCleanup } from 'solid-js';
-import Wave from '../components/wave';
+import Wave from '../components/Wave';
 import WaveHandler from '../js/waves';
 
-function loadStageTwo() {
-    const event = new Event('load_stage_two');
-
-    // fadeout the waves
-    for (const wave of document.querySelectorAll('.js-toggle-opacity')) {
-        wave.style.opacity = 0;
-    }
-
-    setTimeout(() => document.dispatchEvent(event), 400);
-}
-
 function Waves() {
+    function loadStageTwo() {
+        const event = new Event('load_stage_two');
+
+        // remove the waves
+        for (const wave of document.querySelectorAll('.js-toggle-opacity')) {
+            wave.classList.add('hidden');
+        }
+
+        setTimeout(() => document.dispatchEvent(event), 400);
+    }
     const [dragDistance, setDragDistance] = createSignal(-100);
     const waveHandler = new WaveHandler(setDragDistance, loadStageTwo);
 
@@ -28,7 +27,7 @@ function Waves() {
     });
 
     return (
-        <div class="h-screen bg-neutral-950">
+        <div class="h-screen bg-neutral-900">
             <div
                 class="js-pause-transition linear absolute -left-full flex h-screen transition-[left] duration-300"
                 style={{ left: `${dragDistance()}%` }}
