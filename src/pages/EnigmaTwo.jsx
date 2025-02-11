@@ -1,11 +1,11 @@
 import FadeIn from '../components/FadeIn';
-import asset from '../assets/images/2/1.jpeg';
+import asset from '../assets/images/3/1.jpeg';
 import AnswerBox from '../components/AnswerBox';
 
-function EnigmaOne() {
+function EnigmaTwo() {
     return (
         <div class="grid h-screen bg-black">
-            <FadeIn delay={200}>
+            <FadeIn delay={1000}>
                 <div class="mx-auto h-full w-full max-w-7xl gap-4 bg-black py-4 text-center">
                     <div class="inline-block w-fit space-y-2">
                         <img
@@ -14,8 +14,8 @@ function EnigmaOne() {
                             alt=""
                         />
                         <AnswerBox
-                            hash="a2f4d35545d7b743fa2563b210994de9"
-                            event="load_stage_three"
+                            hash="c529975d322274a9b6b88588754e97f5"
+                            event="load_stage_four"
                         />
                     </div>
                 </div>
@@ -24,4 +24,4 @@ function EnigmaOne() {
     );
 }
 
-export default EnigmaOne;
+export default EnigmaTwo;

@@ -5,7 +5,7 @@ function FadeIn(props) {
 
     setTimeout(() => {
         setVisible(true);
-    }, 200);
+    }, props.delay || 200);
 
     return (
         <div

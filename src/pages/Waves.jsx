@@ -1,17 +1,16 @@
 import { createSignal, onCleanup } from 'solid-js';
 import Wave from '../components/Wave';
 import WaveHandler from '../js/waves';
+import triggerEvent from '../js/event';
 
 function Waves() {
     function loadStageTwo() {
-        const event = new Event('load_stage_two');
-
         // remove the waves
         for (const wave of document.querySelectorAll('.js-toggle-opacity')) {
             wave.classList.add('hidden');
         }
 
-        setTimeout(() => document.dispatchEvent(event), 400);
+        setTimeout(() => triggerEvent('load_stage_two'), 400);
     }
     const [dragDistance, setDragDistance] = createSignal(-100);
     const waveHandler = new WaveHandler(setDragDistance, loadStageTwo);
