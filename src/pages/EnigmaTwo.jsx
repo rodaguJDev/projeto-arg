@@ -5,8 +5,8 @@ import AnswerBox from '../components/AnswerBox';
 function EnigmaTwo() {
     return (
         <div class="grid h-screen bg-black">
-            <FadeIn delay={1000}>
-                <div class="mx-auto h-full w-full max-w-7xl gap-4 bg-black py-4 text-center">
+            <FadeIn delay={3500}>
+                <div class="mx-auto h-full w-full max-w-7xl gap-4 bg-black px-4 py-12 text-center">
                     <div class="inline-block w-fit space-y-2">
                         <img
                             class="pointer-events-none w-128"

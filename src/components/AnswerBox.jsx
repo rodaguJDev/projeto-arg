@@ -1,4 +1,5 @@
 import triggerEvent from '../js/event';
+import audio from '../assets/sounds/answer_correct.mp3';
 import MD5 from '../js/md5';
 
 function AnswerBox(props) {
@@ -13,7 +14,8 @@ function AnswerBox(props) {
         if (MD5(answer.toLowerCase()) === correct) {
             console.log('answer_correct');
             if (props.event) {
-                triggerEvent(props.event);
+                new Audio(audio).play();
+                setTimeout(() => triggerEvent(props.event), 500);
             }
         }
     }
