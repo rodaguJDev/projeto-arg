@@ -44,6 +44,7 @@ function AnswerBox(props) {
                 id="answer"
                 onInput={check}
                 class="w-full border-0 bg-white p-1 ring-0 outline-0"
+                autofocus
             />
         </div>
     );

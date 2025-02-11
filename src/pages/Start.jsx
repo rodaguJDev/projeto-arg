@@ -3,15 +3,16 @@ import Wave from '../components/Wave';
 import WaveHandler from '../js/waves';
 import triggerEvent from '../js/event';
 
-function Waves() {
-    function loadStageTwo() {
-        // remove the waves
-        for (const wave of document.querySelectorAll('.js-toggle-opacity')) {
-            wave.classList.add('hidden');
-        }
-
-        setTimeout(() => triggerEvent('load_stage_two'), 400);
+function loadStageTwo() {
+    // remove the waves
+    for (const wave of document.querySelectorAll('.js-toggle-opacity')) {
+        wave.classList.add('hidden');
     }
+
+    setTimeout(() => triggerEvent('load_stage_two'), 400);
+}
+
+function Start() {
     const [dragDistance, setDragDistance] = createSignal(-100);
     const waveHandler = new WaveHandler(setDragDistance, loadStageTwo);
 
@@ -57,4 +58,4 @@ function Waves() {
     );
 }
 
-export default Waves;
+export default Start;

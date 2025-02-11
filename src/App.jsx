@@ -1,21 +1,32 @@
 import { createSignal } from 'solid-js';
-import Waves from './pages/Waves';
-import EnigmaOne from './pages/EnigmaOne';
-import EnigmaTwo from './pages/EnigmaTwo';
+import Start from './pages/Start';
+import StageTwo from './pages/StageTwo';
+import StageThree from './pages/StageThree';
+import StageFour from './pages/StageFour';
+import StageFive from './pages/StageFive';
+import StageSix from './pages/StageSix';
 
-const [currentPage, setCurrentPage] = createSignal(Waves);
+const [currentPage, setCurrentPage] = createSignal(Start);
 
 // Listen for stage switching events
 document.addEventListener('load_stage_two', () => {
-    setCurrentPage(EnigmaOne);
+    setCurrentPage(StageTwo);
 });
 
 document.addEventListener('load_stage_three', () => {
-    setCurrentPage(EnigmaTwo);
+    setCurrentPage(StageThree);
 });
 
 document.addEventListener('load_stage_four', () => {
-    setCurrentPage(Waves);
+    setCurrentPage(StageFour);
+});
+
+document.addEventListener('load_stage_five', () => {
+    setCurrentPage(StageFive);
+});
+
+document.addEventListener('load_stage_six', () => {
+    setCurrentPage(StageSix);
 });
 
 function App() {
