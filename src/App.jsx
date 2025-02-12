@@ -5,6 +5,7 @@ import StageThree from './pages/StageThree';
 import StageFour from './pages/StageFour';
 import StageFive from './pages/StageFive';
 import StageSix from './pages/StageSix';
+import StageSeven from './pages/StageSeven';
 
 const [currentPage, setCurrentPage] = createSignal(Start);
 
@@ -27,6 +28,10 @@ document.addEventListener('load_stage_five', () => {
 
 document.addEventListener('load_stage_six', () => {
     setCurrentPage(StageSix);
+});
+
+document.addEventListener('load_stage_seven', () => {
+    setCurrentPage(StageSeven);
 });
 
 function App() {
