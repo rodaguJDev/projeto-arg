@@ -9,7 +9,7 @@ function FadeIn(props) {
 
     return (
         <div
-            class={`transition-opacity duration-500 ${visible() ? 'opacity-100' : 'opacity-0'}`}
+            class={`transition-opacity duration-[2000ms] ${visible() ? 'opacity-100' : 'opacity-0'}`}
         >
             {props.children}
         </div>
