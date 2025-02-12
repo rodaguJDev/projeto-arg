@@ -1,4 +1,5 @@
 import keystroke from '../assets/sounds/key.mp3';
+import sleep from './lib/sleep';
 /**
  * TypeWritter animation functionality for the app, including sounds
  * Parameters: gapDelay(int) and hasSound(boolean)
@@ -33,14 +34,6 @@ export default class TypeWritter {
         this.gapDelay = gapDelay;
         this.hasSound = true;
     }
-    /**
-     * Delay execution for {time} microseconds. Must be preceded by 'await' to take effect
-     * @param {int} time Time to sleep
-     * @returns {Promise} setTimeout promise
-     */
-    async sleep(time) {
-        return new Promise((resolve) => setTimeout(resolve, time)); // Wait before yielding the next char
-    }
 
     playSound() {
         if (this.hasSound) {
@@ -68,10 +61,10 @@ export default class TypeWritter {
             for (const char of text) {
                 line.innerHTML += char;
                 this.playSound();
-                await this.sleep(delay);
+                await sleep(delay);
             }
 
-            await this.sleep(this.gapDelay);
+            await sleep(this.gapDelay);
         }
     }
 }

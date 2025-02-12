@@ -1,5 +1,7 @@
 import StagesLayout from '../layouts/StagesLayout';
 import TypeWritter from '../js/typewritter';
+import sleep from '../js/lib/sleep';
+import triggerEvent from '../js/lib/event';
 
 function StageSix() {
     async function start() {
@@ -7,6 +9,14 @@ function StageSix() {
         const lines = document.querySelectorAll('.js-poem-line');
 
         await writter.writeLines(lines);
+
+        // show loading indicator (after 2 seconds)
+        await sleep(2000);
+        document.querySelector('.js-loading').style.removeProperty('display');
+
+        // redirect to stage seven (after 4 seconds)
+        await sleep(4000);
+        triggerEvent('load_stage_seven');
     }
 
     // window.addEventListener('click', start, { once: true });
@@ -58,10 +68,19 @@ function StageSix() {
                         <br />
                         <br />
                         <span
-                            class="js-poem-line block text-4xl font-bold"
+                            class="js-poem-line block font-medium"
                             data-content="ENIGMA #1 RESOLVIDO"
                             data-delay="300"
                         ></span>
+                        <div
+                            class="js-loading mt-16 flex items-center justify-center gap-2 bg-white dark:invert"
+                            style="display: none"
+                        >
+                            <span class="sr-only">Loading...</span>
+                            <div class="h-2 w-2 animate-bounce rounded-full bg-black [animation-delay:-0.3s]"></div>
+                            <div class="h-2 w-2 animate-bounce rounded-full bg-black [animation-delay:-0.15s]"></div>
+                            <div class="h-2 w-2 animate-bounce rounded-full bg-black"></div>
+                        </div>
                     </div>
                 </div>
             </div>

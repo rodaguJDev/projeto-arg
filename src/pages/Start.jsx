@@ -1,7 +1,7 @@
 import { createSignal, onCleanup } from 'solid-js';
 import Wave from '../components/Wave';
 import WaveHandler from '../js/waves';
-import triggerEvent from '../js/event';
+import triggerEvent from '../js/lib/event';
 
 function loadStageTwo() {
     // remove the waves

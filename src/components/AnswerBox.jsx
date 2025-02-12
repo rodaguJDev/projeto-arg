@@ -1,6 +1,6 @@
-import triggerEvent from '../js/event';
+import triggerEvent from '../js/lib/event';
 import audio from '../assets/sounds/answer_correct.mp3';
-import MD5 from '../js/md5';
+import MD5 from '../js/lib/md5';
 
 function AnswerBox(props) {
     function checkAnswer() {
