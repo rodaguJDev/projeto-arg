@@ -30,9 +30,7 @@ document.addEventListener('load_stage_six', () => {
 });
 
 function App() {
-    // TODO: Remove debug mark
-    return <StageSix></StageSix>;
-    // return <>{currentPage() /* Call the signal directly inside JSX */}</>;
+    return <>{currentPage() /* Call the signal directly inside JSX */}</>;
 }
 
 export default App;

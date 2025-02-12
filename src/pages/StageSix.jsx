@@ -17,7 +17,7 @@ function StageSix() {
     window.addEventListener('click', start, { once: true });
 
     return (
-        <StagesLayout fadeInDelay={300}>
+        <StagesLayout fadeInDelay={3000}>
             {visible() && (
                 <span class="h-min cursor-default rounded border border-white bg-neutral-900 p-2 font-serif text-2xl text-white">
                     Clique para iniciar...
