@@ -3,22 +3,22 @@ import TypeWritter from '../js/typewritter';
 import sleep from '../js/lib/sleep';
 import triggerEvent from '../js/lib/event';
 
+async function start() {
+    const writter = new TypeWritter();
+    const lines = document.querySelectorAll('.js-poem-line');
+
+    await writter.writeLines(lines);
+
+    // show loading indicator (after 2 seconds)
+    await sleep(2000);
+    document.querySelector('.js-loading').style.removeProperty('display');
+
+    // redirect to stage seven (after 4 seconds)
+    await sleep(4000);
+    triggerEvent('load_stage_seven');
+}
+
 function StageSix() {
-    async function start() {
-        const writter = new TypeWritter();
-        const lines = document.querySelectorAll('.js-poem-line');
-
-        await writter.writeLines(lines);
-
-        // show loading indicator (after 2 seconds)
-        await sleep(2000);
-        document.querySelector('.js-loading').style.removeProperty('display');
-
-        // redirect to stage seven (after 4 seconds)
-        await sleep(4000);
-        triggerEvent('load_stage_seven');
-    }
-
     // window.addEventListener('click', start, { once: true });
     setTimeout(start, 3000);
 
