@@ -1,6 +1,7 @@
 import triggerEvent from '../js/lib/event';
 import audio from '../assets/sounds/answer_correct.mp3';
 import MD5 from '../js/lib/md5';
+import debounce from '../js/lib/debounce';
 
 function AnswerBox(props) {
     function checkAnswer() {
@@ -18,18 +19,6 @@ function AnswerBox(props) {
                 setTimeout(() => triggerEvent(props.event), 200);
             }
         }
-    }
-
-    function debounce(callback, delay) {
-        let timeoutId;
-
-        return function (...args) {
-            clearTimeout(timeoutId);
-
-            timeoutId = setTimeout(() => {
-                callback(...args);
-            }, delay);
-        };
     }
 
     const check = debounce(checkAnswer, 200);
