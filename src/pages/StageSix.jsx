@@ -1,28 +1,19 @@
 import StagesLayout from '../layouts/StagesLayout';
 import TypeWritter from '../js/typewritter';
-import { createSignal, onMount } from 'solid-js';
 
 function StageSix() {
     async function start() {
         const writter = new TypeWritter();
         const lines = document.querySelectorAll('.js-poem-line');
 
-        setVisible(false);
-
         await writter.writeLines(lines);
     }
 
-    const [visible, setVisible] = createSignal(true);
-
-    window.addEventListener('click', start, { once: true });
+    // window.addEventListener('click', start, { once: true });
+    setTimeout(start, 3000);
 
     return (
         <StagesLayout fadeInDelay={3000}>
-            {visible() && (
-                <span class="h-min cursor-default rounded border border-white bg-neutral-900 p-2 font-serif text-2xl text-white">
-                    Clique para iniciar...
-                </span>
-            )}
             <div class="w-fit space-y-2">
                 <div class="max-w-[32rem]">
                     <div class="block text-center text-2xl text-white">
