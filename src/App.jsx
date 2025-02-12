@@ -35,7 +35,7 @@ document.addEventListener('load_stage_seven', () => {
 });
 
 function App() {
-    return <>{currentPage() /* Call the signal directly inside JSX */}</>;
+    return <>{currentPage()}</>;
 }
 
 export default App;

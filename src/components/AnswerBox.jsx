@@ -1,27 +1,16 @@
-import triggerEvent from '../js/lib/event';
 import audio from '../assets/sounds/answer_correct.mp3';
-import MD5 from '../js/lib/md5';
 import debounce from '../js/lib/debounce';
+import checkAnswer from '../js/checkanswer';
 
 function AnswerBox(props) {
-    function checkAnswer() {
-        /**
-         * @type {string}
-         */
-        const answer = document.getElementById('answer')?.value || '';
-        const correct = props.hash || '';
-        console.log('answer_check');
-
-        if (MD5(answer.toLowerCase()) === correct) {
-            console.log('answer_correct');
-            if (props.event) {
-                new Audio(audio).play();
-                setTimeout(() => triggerEvent(props.event), 200);
-            }
-        }
-    }
-
-    const check = debounce(checkAnswer, 200);
+    const defaultCheck = debounce(() => {
+        checkAnswer({
+            answer: document.getElementById('answer')?.value || '',
+            correct: props.hash || '',
+            eventName: props.event || '',
+            audio: audio,
+        });
+    }, 200);
 
     return (
         <div class="block text-start">
@@ -31,7 +20,7 @@ function AnswerBox(props) {
             <input
                 type="text"
                 id="answer"
-                onInput={check}
+                onInput={props.check || defaultCheck}
                 class="w-full border-0 bg-white p-1 ring-0 outline-0"
                 autofocus
             />
