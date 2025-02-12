@@ -15,7 +15,7 @@ function AnswerBox(props) {
             console.log('answer_correct');
             if (props.event) {
                 new Audio(audio).play();
-                setTimeout(() => triggerEvent(props.event), 500);
+                setTimeout(() => triggerEvent(props.event), 200);
             }
         }
     }
