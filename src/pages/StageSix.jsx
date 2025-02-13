@@ -77,9 +77,9 @@ function StageSix() {
                             style="display: none"
                         >
                             <span class="sr-only">Loading...</span>
-                            <div class="h-1 w-1 animate-bounce rounded-full bg-black [animation-delay:-0.3s]"></div>
-                            <div class="h-1 w-1 animate-bounce rounded-full bg-black [animation-delay:-0.15s]"></div>
-                            <div class="h-1 w-1 animate-bounce rounded-full bg-black"></div>
+                            <div class="animate-big-bounce h-1 w-1 rounded-full bg-black [animation-delay:-0.3s]"></div>
+                            <div class="animate-big-bounce h-1 w-1 rounded-full bg-black [animation-delay:-0.15s]"></div>
+                            <div class="animate-big-bounce h-1 w-1 rounded-full bg-black"></div>
                         </div>
                     </div>
                 </div>
