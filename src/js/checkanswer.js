@@ -1,12 +1,11 @@
 import triggerEvent from './lib/event';
-import MD5 from './lib/md5';
 
 export default function checkAnswer({ answer, correct, eventName, audio }) {
     // load default values
     answer = answer || '';
     correct = correct || '';
 
-    // strip answer
+    // strip answer and correct
     const strip = (str) => {
         return str
             .toLowerCase()
@@ -14,15 +13,16 @@ export default function checkAnswer({ answer, correct, eventName, audio }) {
             .replace(/[\u0300-\u036f]/g, '') // Remove accents
             .replace(/[^a-z0-9]/g, ''); // Remove non-alphanumeric characters
     };
-    const stripAnswer = strip(answer);
+
+    const formatAnswer = strip(answer);
+    const formatCorrect = strip(atob(correct));
 
     // log to console an answer check start
-    if (MD5(stripAnswer) !== correct) {
+    if (!formatAnswer.includes(formatCorrect)) {
         return;
     }
 
     // log to console a correct answer
-
     if (!eventName) {
         return;
     }

@@ -23,7 +23,7 @@ function StageSeven() {
                         <br />
                         <br />
                         <AnswerBox
-                            hash="ff2e5bbd118dfac505da3a0075cc6a51"
+                            hash="a2luaWNoLWFoYXU="
                             event="load_stage_eight"
                         />
                     </div>

@@ -7,10 +7,7 @@ function EnigmaTwo() {
         <StagesLayout fadeInDelay={3000}>
             <div class="w-fit space-y-2">
                 <img class="pointer-events-none w-128" src={asset} />
-                <AnswerBox
-                    hash="6b7b655dd22faa3f10677c512493a8a0"
-                    event="load_stage_four"
-                />
+                <AnswerBox hash="ZWNsaXBzZQ==" event="load_stage_four" />
             </div>
         </StagesLayout>
     );

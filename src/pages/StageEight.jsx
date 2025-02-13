@@ -6,7 +6,7 @@ import StagesLayout from '../layouts/StagesLayout';
 
 function StageEight() {
     return (
-        <StagesLayout fadeInDelay={300}>
+        <StagesLayout fadeInDelay={1300}>
             <div class="w-fit space-y-2">
                 <div class="grid grid-cols-2 justify-start gap-2">
                     <img class="pointer-events-none row-span-2" src={three} />
@@ -14,7 +14,7 @@ function StageEight() {
                     <img class="pointer-events-none h-full w-full" src={two} />
                 </div>
                 <AnswerBox
-                    hash="9424bd2f230b87273af25d92d28f68c5"
+                    hash="dHLqcyBub2JyZXMgY3JpYW7nYXM="
                     event="load_stage_nine"
                 />
             </div>
