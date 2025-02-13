@@ -30,9 +30,10 @@ export default class TypeWritter {
      * either by tapping or clicking. Make sure to add a "click to start" function to your component if you
      * with to use audio
      */
-    constructor(gapDelay = 1000, hasSound = true) {
+    constructor(keyDelay = 100, gapDelay = 1000, hasSound = true) {
+        this.keyDelay = keyDelay;
         this.gapDelay = gapDelay;
-        this.hasSound = true;
+        this.hasSound = hasSound;
     }
 
     playSound() {
@@ -54,7 +55,7 @@ export default class TypeWritter {
     async writeLines(lines) {
         for (const line of lines) {
             const text = line.dataset.content ?? '';
-            const delay = Math.floor(line.dataset.delay) || 100;
+            const delay = Math.floor(line.dataset.delay) || this.keyDelay;
 
             line.innerHTML = '';
 
