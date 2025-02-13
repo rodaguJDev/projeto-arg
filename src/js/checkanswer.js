@@ -7,7 +7,14 @@ export default function checkAnswer({ answer, correct, eventName, audio }) {
     correct = correct || '';
 
     // strip answer
-    const stripAnswer = answer.toLowerCase().replace(/[^a-zA-Z0-9]/g, '');
+    const strip = (str) => {
+        return str
+            .toLowerCase()
+            .normalize('NFD') // Normalize to decomposed form
+            .replace(/[\u0300-\u036f]/g, '') // Remove accents
+            .replace(/[^a-z0-9]/g, ''); // Remove non-alphanumeric characters
+    };
+    const stripAnswer = strip(answer);
 
     // log to console an answer check start
     console.log('answer_check');
@@ -28,6 +35,6 @@ export default function checkAnswer({ answer, correct, eventName, audio }) {
     }
 
     // trigger specified event
-    console.log(`triggering '${eventName}`);
+    console.log(`triggering '${eventName}'`);
     setTimeout(() => triggerEvent(eventName), 200);
 }

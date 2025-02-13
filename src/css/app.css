@@ -3,13 +3,28 @@
 @theme {
     --transition-none: none;
     --opacity-0: 0;
+
     --animate-fall: fall 10s linear infinite;
+    --animate-big-bounce: big-bounce 1s infinite;
+
     @keyframes fall {
         0% {
             transform: translate(0, -50%);
         }
         100% {
             transform: translate(0, 0%);
+        }
+    }
+
+    @keyframes big-bounce {
+        0%,
+        100% {
+            transform: translateY(-125%);
+            animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+        }
+        50% {
+            transform: none;
+            animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
         }
     }
 }
